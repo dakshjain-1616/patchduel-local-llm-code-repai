@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 270" width="860" height="270">
+  <defs>
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000015"/>
+    </filter>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#8c959f"/>
+    </marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#2da44e"/>
+    </marker>
+    <marker id="arr-o" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#bc4c00"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="270" rx="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="15" font-weight="700" fill="#24292f">
+    PatchDuel — Code Repair Arena Flow
+  </text>
+
+  <!-- ── Step 1: Scenario ── x=36..176, center=106 -->
+  <rect x="36" y="50" width="140" height="100" rx="8" fill="#ddf4ff" stroke="#0969da" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="106" y="74" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="12" font-weight="700" fill="#0550ae">① Scenario</text>
+  <line x1="56" y1="82" x2="156" y2="82" stroke="#0969da" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="106" y="98" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#24292f">8 built-in bugs</text>
+  <text x="106" y="112" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">easy / medium / hard</text>
+  <text x="106" y="126" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">or paste custom code</text>
+  <text x="106" y="140" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#0969da">+ expected fix</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="178" y1="100" x2="194" y2="100" stroke="#8c959f" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ── Step 2: Dual LLM ── x=196..376, two tracks -->
+  <!-- Model A (top) -->
+  <rect x="196" y="50" width="180" height="44" rx="7" fill="#dafbe1" stroke="#2da44e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="286" y="70" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="12" font-weight="700" fill="#116329">② Model A</text>
+  <text x="286" y="86" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">generates patch · timed</text>
+  <!-- Model B (bottom) -->
+  <rect x="196" y="106" width="180" height="44" rx="7" fill="#fff1e5" stroke="#bc4c00" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="286" y="126" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="12" font-weight="700" fill="#7d2d00">② Model B</text>
+  <text x="286" y="142" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">generates patch · timed</text>
+
+  <!-- Bracket connecting A and B to step 3 -->
+  <line x1="378" y1="72" x2="394" y2="72" stroke="#2da44e" stroke-width="1.5"/>
+  <line x1="394" y1="72" x2="394" y2="128" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="394" y1="128" x2="378" y2="128" stroke="#bc4c00" stroke-width="1.5"/>
+  <line x1="394" y1="100" x2="410" y2="100" stroke="#8c959f" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ── Step 3: Diff Engine ── x=412..572, center=492 -->
+  <rect x="412" y="60" width="160" height="80" rx="8" fill="#fff8c5" stroke="#9a6700" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="492" y="82" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="12" font-weight="700" fill="#7d4e00">③ Diff Engine</text>
+  <line x1="432" y1="90" x2="572" y2="90" stroke="#9a6700" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="492" y="106" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#24292f">git-style HTML diff</text>
+  <text x="492" y="120" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">+adds  −dels  context</text>
+  <text x="492" y="132" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">quality score 0–100</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="574" y1="100" x2="590" y2="100" stroke="#8c959f" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ── Step 4: Verdict ── x=592..732, center=662 -->
+  <rect x="592" y="60" width="140" height="80" rx="8" fill="#f5f0ff" stroke="#6e40c9" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="662" y="82" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="12" font-weight="700" fill="#4f2d99">④ Verdict</text>
+  <line x1="612" y1="90" x2="722" y2="90" stroke="#6e40c9" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="662" y="106" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#24292f">Win / Tie / Both Wrong</text>
+  <text x="662" y="120" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">heuristic or manual</text>
+  <text x="662" y="132" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">with free-text notes</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="734" y1="100" x2="750" y2="100" stroke="#8c959f" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ── Step 5: Log ── x=752..844, center=798 -->
+  <rect x="752" y="60" width="92" height="80" rx="8" fill="#f6f8fa" stroke="#8c959f" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="798" y="82" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="12" font-weight="700" fill="#24292f">⑤ Log</text>
+  <line x1="762" y1="90" x2="834" y2="90" stroke="#8c959f" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="798" y="106" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#24292f">SQLite</text>
+  <text x="798" y="120" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">CSV / JSON</text>
+  <text x="798" y="132" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">export</text>
+
+  <!-- Bottom row: Leaderboard + key stats -->
+  <rect x="196" y="188" width="180" height="54" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1" filter="url(#shadow)"/>
+  <text x="286" y="207" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="11" font-weight="700" fill="#24292f">Leaderboard</text>
+  <text x="286" y="222" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">win / loss / tie per model</text>
+  <text x="286" y="235" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">win rate % across all runs</text>
+
+  <rect x="412" y="188" width="160" height="54" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1" filter="url(#shadow)"/>
+  <text x="492" y="207" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="11" font-weight="700" fill="#24292f">Per-run Stats</text>
+  <text x="492" y="222" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">latency · token count</text>
+  <text x="492" y="235" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">insertions / deletions</text>
+
+  <rect x="608" y="188" width="236" height="54" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1" filter="url(#shadow)"/>
+  <text x="726" y="207" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="11" font-weight="700" fill="#24292f">Providers</text>
+  <text x="726" y="222" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">Ollama (local)  ·  OpenRouter (cloud)</text>
+  <text x="726" y="235" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+        font-size="10" fill="#57606a">Mock (demo/offline, no setup)</text>
+
+  <!-- Down arrows from main flow to bottom row -->
+  <line x1="286" y1="162" x2="286" y2="186" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <line x1="492" y1="162" x2="492" y2="186" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <line x1="726" y1="162" x2="726" y2="186" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+</svg>

@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+.env.local
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Package build artifacts
+*.egg-info/
+dist/
+build/
+
+# Database files (generated at runtime)
+*.db
+
+# Generated outputs — ignore runtime-generated files
+outputs/*.json
+outputs/report.html
+outputs/summary.txt
+# Keep the pre-generated example outputs committed
+!outputs/results.json
+
+# Reports directory
+reports/
+
+# Test cache
+.pytest_cache/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

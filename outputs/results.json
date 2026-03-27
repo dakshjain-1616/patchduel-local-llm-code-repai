@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "generated_at": "2026-03-27T10:00:00+00:00",
+    "mode": "mock",
+    "model_a": "llama3.2",
+    "model_b": "mistral-nemo",
+    "total_cases": 3,
+    "db_path": "patchduel_demo.db"
+  },
+  "results": [
+    {
+      "id": "tc-001",
+      "description": "Simple arithmetic bug: subtraction instead of addition",
+      "language": "python",
+      "run_id": 1,
+      "model_a": "llama3.2",
+      "model_b": "mistral-nemo",
+      "buggy_code": "def add(a, b):\n    return a - b  # Bug: should be a + b",
+      "patch_a": "def add(a, b):\n    return a + b",
+      "patch_b": "def add(a, b):\n    # Fixed: changed subtraction to addition\n    return a + b",
+      "diff_stats_a": {
+        "insertions": 1,
+        "deletions": 27,
+        "changed": true
+      },
+      "diff_stats_b": {
+        "insertions": 43,
+        "deletions": 27,
+        "changed": true
+      },
+      "summary_a": "+1 chars added  |  \u221227 chars removed",
+      "summary_b": "+43 chars added  |  \u221227 chars removed",
+      "winner": "Model A"
+    },
+    {
+      "id": "tc-002",
+      "description": "Off-by-one error in loop boundary",
+      "language": "python",
+      "run_id": 2,
+      "model_a": "llama3.2",
+      "model_b": "mistral-nemo",
+      "buggy_code": "def sum_list(items):\n    total = 0\n    for i in range(len(items) + 1):  # Bug: should be len(items)\n        total += items[i]\n    return total",
+      "patch_a": "def sum_list(items):\n    total = 0\n    for i in range(len(items)):\n        total += items[i]\n    return total",
+      "patch_b": "def sum_list(items):\n    total = 0\n    for item in items:\n        total += item\n    return total",
+      "diff_stats_a": {
+        "insertions": 0,
+        "deletions": 30,
+        "changed": true
+      },
+      "diff_stats_b": {
+        "insertions": 10,
+        "deletions": 43,
+        "changed": true
+      },
+      "summary_a": "\u221230 chars removed",
+      "summary_b": "+10 chars added  |  \u221243 chars removed",
+      "winner": "Model A"
+    },
+    {
+      "id": "tc-003",
+      "description": "Wrong comparison operator in guard clause",
+      "language": "python",
+      "run_id": 3,
+      "model_a": "llama3.2",
+      "model_b": "mistral-nemo",
+      "buggy_code": "def safe_divide(a, b):\n    if b == 0:  # correct guard, but returns wrong value\n        return b  # Bug: should return 0 or raise\n    return a / b",
+      "patch_a": "def safe_divide(a, b):\n    if b == 0:\n        return 0\n    return a / b",
+      "patch_b": "def safe_divide(a, b):\n    if b == 0:\n        raise ValueError('Cannot divide by zero')\n    return a / b",
+      "diff_stats_a": {
+        "insertions": 1,
+        "deletions": 63,
+        "changed": true
+      },
+      "diff_stats_b": {
+        "insertions": 37,
+        "deletions": 63,
+        "changed": true
+      },
+      "summary_a": "+1 chars added  |  \u221263 chars removed",
+      "summary_b": "+37 chars added  |  \u221263 chars removed",
+      "winner": "Model A"
+    }
+  ]
+}
